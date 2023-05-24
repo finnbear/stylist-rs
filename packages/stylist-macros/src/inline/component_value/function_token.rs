@@ -30,26 +30,18 @@ pub struct FunctionToken {
 
 impl ToTokens for FunctionToken {
     fn to_tokens(&self, toks: &mut TokenStream) {
-        self.name.to_tokens(toks);
-        self.paren.surround(toks, |toks| {
-            for c in self.args.iter() {
-                c.to_tokens(toks);
-            }
-        });
+        todo!()
     }
 }
 
 impl Parse for FunctionToken {
     fn parse(input: &ParseBuffer) -> ParseResult<Self> {
-        Self::parse_with_name(input.parse()?, input)
+        todo!()
     }
 }
 
 impl FunctionToken {
     pub(super) fn parse_with_name(name: CssIdent, input: &ParseBuffer) -> ParseResult<Self> {
-        let inner;
-        let paren = parenthesized!(inner in input);
-        let args = ComponentValue::parse_multiple(&inner)?;
-        Ok(Self { name, paren, args })
+        todo!()
     }
 }

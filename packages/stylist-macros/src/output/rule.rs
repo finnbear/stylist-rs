@@ -14,22 +14,6 @@ pub struct OutputRule {
 
 impl Reify for OutputRule {
     fn into_token_stream(self, ctx: &mut ReifyContext) -> TokenStream {
-        let condition = self
-            .condition
-            .into_iter()
-            .coalesce(fragment_coalesce)
-            .into_cow_vec_tokens(quote! {::stylist::ast::StringFragment}, ctx);
-        let content = self
-            .content
-            .into_cow_vec_tokens(quote! {::stylist::ast::RuleBlockContent}, ctx);
-
-        quote! {
-            ::stylist::ast::Rule {
-                condition: {
-                    #condition
-                },
-                content: #content,
-            }
-        }
+        todo!()
     }
 }

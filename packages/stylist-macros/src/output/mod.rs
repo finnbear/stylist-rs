@@ -38,22 +38,19 @@ pub trait Reify {
 
 impl Reify for syn::Error {
     fn into_token_stream(self, _ctx: &mut ReifyContext) -> TokenStream {
-        self.into_compile_error()
+        todo!()
     }
 }
 
 impl Reify for TokenStream {
     fn into_token_stream(self, ctx: &mut ReifyContext) -> TokenStream {
-        // We are overly conservative here
-        ctx.uses_dynamic_argument();
-        self
+        todo!()
     }
 }
 
 impl Reify for Expr {
     fn into_token_stream(self, ctx: &mut ReifyContext) -> TokenStream {
         // TODO: We are overly conservative here, could analyse the expression further
-        ctx.uses_dynamic_argument();
-        self.to_token_stream()
+        todo!()
     }
 }

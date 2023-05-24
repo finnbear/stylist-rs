@@ -10,15 +10,6 @@ pub enum OutputScopeContent {
 
 impl Reify for OutputScopeContent {
     fn into_token_stream(self, ctx: &mut ReifyContext) -> TokenStream {
-        match self {
-            Self::Rule(rule) => {
-                let tokens = rule.into_token_stream(ctx);
-                quote! { ::stylist::ast::ScopeContent::Rule(#tokens) }
-            }
-            Self::Block(block) => {
-                let tokens = block.into_token_stream(ctx);
-                quote! { ::stylist::ast::ScopeContent::Block(#tokens) }
-            }
-        }
+        todo!()
     }
 }

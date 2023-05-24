@@ -19,93 +19,52 @@ pub enum OutputFragment {
 
 impl From<char> for OutputFragment {
     fn from(c: char) -> Self {
-        match c {
-            '{' => Self::Delimiter(Delimiter::Brace, true),
-            '}' => Self::Delimiter(Delimiter::Brace, false),
-            '[' => Self::Delimiter(Delimiter::Bracket, true),
-            ']' => Self::Delimiter(Delimiter::Bracket, false),
-            '(' => Self::Delimiter(Delimiter::Parenthesis, true),
-            ')' => Self::Delimiter(Delimiter::Parenthesis, false),
-            ' ' => Self::Str(" ".into()),
-            _ => unreachable!("Delimiter {} not recognized", c),
-        }
+        todo!()
     }
 }
 
 impl From<PreservedToken> for OutputFragment {
     fn from(t: PreservedToken) -> Self {
-        Self::Token(t)
+        todo!()
     }
 }
 
 impl From<CssIdent> for OutputFragment {
     fn from(i: CssIdent) -> Self {
-        PreservedToken::Ident(i).into()
+        todo!()
     }
 }
 
 impl From<Expr> for OutputFragment {
     fn from(expr: Expr) -> Self {
-        Self::Expr(expr)
+        todo!()
     }
 }
 
 impl From<Argument> for OutputFragment {
     fn from(arg: Argument) -> Self {
-        Self::Arg(arg)
+        todo!()
     }
 }
 
 impl OutputFragment {
     pub fn into_inner(self) -> OutputCowString {
-        match self {
-            Self::Token(t) => t.to_output_string().into(),
-            Self::Delimiter(kind, start) => Self::str_for_delim(kind, start).to_string().into(),
-            Self::Str(s) => s.into(),
-            Self::Arg(arg) => OutputCowString::from_displayable_spanned(arg.name_token, arg.tokens),
-            Self::Expr(expr) => {
-                if let Expr::Lit(ExprLit {
-                    lit: Lit::Str(ref litstr),
-                    ..
-                }) = expr
-                {
-                    litstr.value().into()
-                } else {
-                    OutputCowString::from_displayable_spanned(expr.span(), expr)
-                }
-            }
-        }
+        todo!()
     }
 
     fn str_for_delim(d: Delimiter, start: bool) -> &'static str {
-        match (d, start) {
-            (Delimiter::Brace, true) => "{",
-            (Delimiter::Brace, false) => "}",
-            (Delimiter::Bracket, true) => "[",
-            (Delimiter::Bracket, false) => "]",
-            (Delimiter::Parenthesis, true) => "(",
-            (Delimiter::Parenthesis, false) => ")",
-            (Delimiter::None, _) => unreachable!("only actual delimiters allowed"),
-        }
+        todo!()
     }
 
     fn as_string(&self) -> Option<String> {
-        if let OutputCowString::Str(s) = self.clone().into_inner() {
-            Some(s)
-        } else {
-            None
-        }
+        todo!()
     }
 }
 
 impl Reify for OutputFragment {
     fn into_token_stream(self, ctx: &mut ReifyContext) -> TokenStream {
-        let inner = self.into_inner().into_token_stream(ctx);
-        quote! {
-            ::stylist::ast::StringFragment {
-                inner: #inner
-            }
-        }
+        todo!()
+        
     }
 }
 
@@ -113,11 +72,5 @@ pub fn fragment_coalesce(
     l: OutputFragment,
     r: OutputFragment,
 ) -> Result<OutputFragment, (OutputFragment, OutputFragment)> {
-    match (l.as_string(), r.as_string()) {
-        (Some(lt), Some(rt)) => {
-            // Two successive string literals can be combined into a single one
-            Ok(OutputFragment::Str(format!("{lt}{rt}")))
-        }
-        _ => Err((l, r)),
-    }
+    todo!()
 }

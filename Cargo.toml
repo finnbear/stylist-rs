@@ -3,20 +3,5 @@ members = [
     "packages/stylist",
     "packages/stylist-core",
     "packages/stylist-macros",
-
-    "examples/benchmarks",
-    "examples/yew-proc-macros",
-    "examples/yew-integration",
-    "examples/yew-shadow",
-    "examples/yew-theme-context",
-    "examples/yew-theme-hooks",
-    "examples/use-media-query",
-    "examples/yew-ssr",
 ]
 resolver = "2"
-
-[profile.release]
-opt-level = 'z'
-lto = true
-codegen-units = 1
-panic = "abort"

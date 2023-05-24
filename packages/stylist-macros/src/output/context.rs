@@ -38,12 +38,7 @@ enum ExpressionKind {
 impl ExpressionKind {
     // Compute the jointly allowed usage of two expression that are used together.
     pub fn join(&self, rhs: Self) -> Self {
-        use ExpressionKind::*;
-        match (self, rhs) {
-            (Dynamic, _) | (_, Dynamic) => Dynamic,
-            (Static, _) | (_, Static) => Static,
-            _ => Const,
-        }
+        todo!()
     }
 }
 
@@ -66,23 +61,23 @@ impl ReifyContext {
     }
 
     pub fn uses_nested(&mut self, other: &Self) {
-        self.usage = self.usage.join(other.usage);
+        todo!()
     }
 
     // Record the usage of a dynamic expression
     pub fn uses_dynamic_argument(&mut self) {
-        self.usage = self.usage.join(ExpressionKind::Dynamic);
+        todo!()
     }
     // Record the usage of an expression that is not allowed in const context
     pub fn uses_static(&mut self) {
-        self.usage = self.usage.join(ExpressionKind::Static);
+        todo!()
     }
 
     pub fn is_static(&self) -> bool {
-        matches!(self.usage, ExpressionKind::Static | ExpressionKind::Const)
+        todo!()
     }
 
     pub fn is_const(&self) -> bool {
-        matches!(self.usage, ExpressionKind::Const)
+        todo!()
     }
 }

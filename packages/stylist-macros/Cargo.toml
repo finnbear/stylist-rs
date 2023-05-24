@@ -2,24 +2,6 @@
 name = "stylist-macros"
 version = "0.12.0"
 edition = "2021"
-license = "MIT"
-repository = "https://github.com/futursolo/stylist-rs"
-authors = [
-    "Kaede Hoshiakwa <futursolo@icloud.com>",
-    "Martin Molzer <ga65guy@mytum.de>",
-]
-description = "Stylist is a CSS-in-Rust styling solution for WebAssembly Applications."
-keywords = [
-    "CSS",
-    "web",
-    "css-in-rust",
-    "yew"
-]
-categories = ["wasm", "web-programming"]
-readme = "README.md"
-homepage = "https://github.com/futursolo/stylist-rs"
-resolver = "2"
-rust-version = "1.60"
 
 [lib]
 proc-macro = true
@@ -35,6 +17,3 @@ nom = "7.1.1"
 syn = { version = "1.0.105", features = ["full", "extra-traits"] }
 itertools = "0.10.5"
 log = "0.4.17"
-
-[dev-dependencies]
-env_logger = "0.10.0"
