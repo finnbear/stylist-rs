@@ -3,4 +3,3 @@ members = [
     "packages/stylist",
     "packages/stylist-macros",
 ]
-resolver = "2"
