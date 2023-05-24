@@ -7,13 +7,6 @@ edition = "2021"
 proc-macro = true
 
 [dependencies]
-stylist-core = { path = "../stylist-core", version = "0.12", features = ["parser"] }
+stylist-core = { path = "../stylist-core", version = "0.12"}
 
-litrs = "0.4.0"
-proc-macro-error = "1.0.4"
 proc-macro2 = "1.0.47"
-quote = "1.0.21"
-nom = "7.1.1"
-syn = { version = "1.0.105", features = ["full", "extra-traits"] }
-itertools = "0.10.5"
-log = "0.4.17"
