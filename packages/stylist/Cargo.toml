@@ -4,5 +4,4 @@ version = "0.12.0"
 edition = "2021"
 
 [dependencies]
-stylist-core = { path = "../stylist-core", version = "0.12" }
 stylist-macros = { path = "../stylist-macros", version = "0.12" }

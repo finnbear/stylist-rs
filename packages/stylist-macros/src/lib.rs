@@ -1,8 +1,7 @@
 
 use proc_macro::TokenStream;
 
-// Error.
-use stylist_core::Error;
+use wasm_bindgen::JsValue;
 
 #[proc_macro_attribute]
 pub fn styled_component_impl(attr: TokenStream, item: TokenStream) -> TokenStream {

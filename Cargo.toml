@@ -1,7 +1,6 @@
 [workspace]
 members = [
     "packages/stylist",
-    "packages/stylist-core",
     "packages/stylist-macros",
 ]
 resolver = "2"
